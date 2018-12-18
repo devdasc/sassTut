@@ -1,0 +1,80 @@
+@import '_theme-default.scss';
+@import 'mixins';
+
+.theme-bg,li:hover>a{background: $theme-color;}
+.box {
+  width: 1000px;
+  margin: auto;
+}
+h2 {
+  color: $color-white;
+  font-family: $roboto-font-family;
+  font-weight: 500;
+  @extend .theme-bg;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  li {
+    display: inline-block;
+    position: relative;
+    a {
+      background: $bg-black;
+      color: $color-white;
+      text-decoration: none;
+      padding: 10px 15px;
+      text-transform: uppercase;
+      display: block;
+      @include transition_time(.3s);
+    }
+    &:hover ul.submenu {
+      opacity: 1;
+      visibility: visible;
+      top: 100%;
+    }
+    ul.submenu {
+      position: absolute;
+      width: 200px;
+      top: 130%;
+      left: 0;
+      @include transition_time(.5s);
+      opacity: 0;
+      visibility: hidden;
+      li {display: block;
+        a{
+          padding: 15px 15px;
+        }
+      }
+    }
+    .mega-menu{
+      position: absolute;
+      left: 0;
+      top: 130%;
+      width: 600px;
+      @include transition_time(.5s);
+      opacity: 0;
+      visibility: hidden;
+      ul{
+        width: 33.33%;
+        float:left;
+        li{
+          display: block;
+          a{
+            padding:5px 15px;
+            text-transform: capitalize;
+          }
+        }
+      }
+    }
+    &:hover .mega-menu{
+      opacity: 1;
+      visibility: visible;
+      top:100%
+    }
+
+  }
+  li:hover >a{@extend .theme-bg}
+
+
+}
